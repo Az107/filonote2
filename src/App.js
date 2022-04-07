@@ -2,7 +2,7 @@ import './App.css';
 import React, { useEffect, useState } from "react";
 
 
-const URL = "http://192.168.0.116:8080/notes"
+const URL = "http://localhost:8080/notes"
 
 
 
