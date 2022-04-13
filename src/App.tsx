@@ -44,7 +44,7 @@ const  App = () => {
       <div className='footer'>
         {dialog 
         ? <NoteDialog onClose={() => setDialog(false)} onAdd={add} /> 
-        : <button className='btn primary' onClick={() => setDialog(true)}>Add Note</button>}
+        : <button className='btn btn-primary' onClick={() => setDialog(true)}>Add Note</button>}
       </div>
     </div>
   );

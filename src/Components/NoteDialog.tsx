@@ -26,7 +26,7 @@ return (
       <input className='entry' type='text' placeholder='Title' value={title} onChange={(e) => setTitle(e.target.value)} />
       <textarea className='entry' placeholder='Content' value={content} onChange={(e) => setContent(e.target.value)} />
       <div className='footer'>
-        <button className='btn primary' onClick={() => onAdd({
+        <button className='btn btn-primary' onClick={() => onAdd({
           title, content,
           id: 0
         })}>Save</button>
