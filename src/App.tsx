@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import {getNotes,delNote, addNote} from "./Actions";
 import Card from './Components/Card';
 import NoteDialog from './Components/NoteDialog';
 import { Note } from "./Types";
@@ -10,22 +9,22 @@ const  App = () => {
   let [dialog, setDialog] = useState(false);
 
   useEffect(() => {
-    async function fetchData() {
-          let notes = await getNotes();
-          setNotes(notes);
-    }
-    fetchData();
+      let notes = JSON.parse(localStorage.getItem("notes") || "[]");
+      setNotes(notes); 
   }, []);
+
+
+  useEffect(() => {
+    localStorage.setItem("notes", JSON.stringify(notes));
+  }, [notes]);
 
 
   function del(note: Note) {
     setNotes(notes.filter(n => n.id !== note.id));
-    delNote(note.id);
   }
 
   function add(note: Note) {
     note.id = notes.length;
-    addNote(note);
     setNotes([...notes, note]);
     setDialog(false);
   }

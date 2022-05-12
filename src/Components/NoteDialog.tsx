@@ -17,9 +17,9 @@ const NoteDialog : React.FC<Props> = (Props) => {
 return (
   <div className='dialog' >
     <div className='title'>
-      <button onClick={() => onClose()} className='traffic' style={{backgroundColor: "#ff454a"}}>x</button>
-      <button className='traffic' style={{backgroundColor: "#fec230"}}>-</button>
-      <button className='traffic' >[]</button>
+      <button onClick={() => onClose()} className='traffic traffic-red' >x</button>
+      <button className='traffic traffic-yellow' >-</button>
+      <button className='traffic traffic-green' >[]</button>
       <a>New Note</a>
     </div>
     <div className='content'>

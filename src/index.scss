@@ -1,7 +1,7 @@
 $primary-color: #2980b9;
-$trafic-red: #e74c3c;
-$trafic-yellow: #f1c40f;
-$trafic-green: #27ae60;
+$trafic-red: rgb(255,86,79);
+$trafic-yellow: rgb(255,182,42);
+$trafic-green: rgb(37,199,58);
 
 body {
     font-family: sans-serif;
@@ -25,12 +25,13 @@ font-size: medium;
 margin: 5px;
 box-shadow: 0 0 5px 0 rgb(0 0 0 / 20%);
     
-}
 
-.btn-primary {
-  background-color: $primary-color;
-  color: white;
-  border: solid 1px $primary-color;
+  &-primary {
+    background-color: $primary-color;
+    color: white;
+    border: solid 1px $primary-color;
+  }
+
 }
 
 .card {
@@ -137,11 +138,12 @@ textarea {
   font-size: large;
   height: 80%;
   box-shadow: 1px 1px 2px 0 rgb(0 0 0 / 20%);
+  
+  &:focus {
+    border: solid 1px rgb(196 196 196);
+  }
 }
 
-.entry:focus {
-  border: solid 1px rgb(196 196 196);
-}
 
 .traffic {
   height: 10px;
@@ -156,10 +158,23 @@ textarea {
   padding: 1px;
   transition: width 0.5s ease, height 0.5s ease;
   transition-delay: 0.5s;
-}
+  
+  &-red {
+    background-color: $trafic-red;
+  }
 
-.traffic:hover {
-  color: rgb(75 75 75 / 50%);
+  &-yellow {
+    background-color: $trafic-yellow;
+  }
+
+  &-green {
+    background-color: $trafic-green;
+  }
+
+
+  &:hover {
+    color: rgb(75 75 75 / 50%);
+  }
 }
 
 @media only screen and (max-width: 1000px) {
