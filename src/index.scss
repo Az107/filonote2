@@ -32,6 +32,13 @@ box-shadow: 0 0 5px 0 rgb(0 0 0 / 20%);
     border: solid 1px $primary-color;
   }
 
+  &-delete {
+    color: $trafic-red;
+    background-color: white;
+    border: solid 1px $trafic-red;
+    display: none;
+  }
+
 }
 
 .card {
@@ -101,6 +108,17 @@ box-shadow: 0 0 5px 0 rgb(0 0 0 / 20%);
   flex-direction: column;
   border-bottom: solid 2px white;
   border-radius: 0 0 5px 5px;
+}
+
+.background-blur {
+  background-color: rgba(255, 255, 255, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  filter: blur(20px);
+  display: none;
 }
 
 .footer {
@@ -195,11 +213,30 @@ textarea {
 }
 
 @media only screen and (max-width: 600px) {
+
   .btn {
     font-size: large;
     padding: 10px;
     padding-left: 15px;
     padding-right: 15px;
+    margin-bottom: 10px;
+
+    &-delete {
+      display: block;
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 90%;
+      top: 60%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 50;
+    }
+  }
+
+  .background-blur {
+    display: block;
+    z-index: 2;
   }
 
   .entry {
@@ -242,7 +279,40 @@ textarea {
     max-height: 100px;
     max-width: none;
     width: 99%;
+    transition: width 0.5s linear, top 0.5s linear;
+    
+
+    &-selected {
+      position: fixed;
+      top: 40%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 80%;
+      z-index: 1000;
+  
+      .title {
+        height: 20%;
+      }
+
+
+    }
+
+    &-selected::backdrop {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: red;
+      border: red solid 1px;
+      background-color: $primary-color;
+      filter: blur(5px);
+      z-index: 999;
+
+    }
   }
+    
+    
 
   .dialog {
     position: fixed;

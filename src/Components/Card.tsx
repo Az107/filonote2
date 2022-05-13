@@ -17,15 +17,29 @@ const Card : React.FC<Props>  = (props) => {
     }
 
     return (
-        <div className={`card ${isMaximized ? 'dialog' : ''}`} onTouchStart={() => setMaximized(!isMaximized)}>
-        <div className='title'>
-            <button onClick={() => onClose(note)} className='traffic' style={{backgroundColor: "#ff454a"}}>x</button>
-            <button className='traffic' style={{backgroundColor: "#fec230"}}>-</button>
-            <button onClick={maximize} className='traffic' style={{backgroundColor: "#30d33d"}}>[]</button>
-            <a>{note.title}</a>
-        </div>
-        <div className='content'>{note.content}</div>
-        </div>
+        <>
+            <div className={`card ${isMaximized ? 'card-selected' : ''}`} onTouchStart={() => setMaximized(!isMaximized)}>
+            <div className='title'>
+                <button onClick={() => onClose(note)} className='traffic' style={{backgroundColor: "#ff454a"}}>x</button>
+                <button className='traffic' style={{backgroundColor: "#fec230"}}>-</button>
+                <button onClick={maximize} className='traffic' style={{backgroundColor: "#30d33d"}}>[]</button>
+                <a>{note.title}</a>
+            </div>
+            <div className='content' >{note.content} </div>
+            </div>
+            {
+                isMaximized 
+                ? <button className='btn btn-delete' onClick={() => onClose(note)}>Delete</button>
+                : <></>
+            }
+
+            {
+                isMaximized
+                ? <div className="background-blur" ></div>
+                : <></>
+            }
+        </>
+
     );
 }
 
