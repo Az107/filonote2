@@ -39,6 +39,12 @@ box-shadow: 0 0 5px 0 rgb(0 0 0 / 20%);
     display: none;
   }
 
+  &-disabled {
+    box-shadow: none;
+    color: white;
+    background-color: #297fb985;
+  }
+
 }
 
 .card {

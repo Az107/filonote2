@@ -13,7 +13,14 @@ const NoteDialog : React.FC<Props> = (Props) => {
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
   
-  
+  const isDisabled = () => {
+      const isTitleEmpty = title === "";
+      const isContentEmpty = content === "";
+
+      return isContentEmpty && isTitleEmpty;
+
+  }
+
 return (
   <div className='dialog' >
     <div className='title'>
@@ -26,7 +33,7 @@ return (
       <input className='entry' type='text' placeholder='Title' value={title} onChange={(e) => setTitle(e.target.value)} />
       <textarea className='entry' placeholder='Content' value={content} onChange={(e) => setContent(e.target.value)} />
       <div className='footer'>
-        <button className='btn btn-primary' onClick={() => onAdd({
+        <button disabled={isDisabled()} className={`btn btn-primary ${isDisabled() ? "btn-disabled" : ""}`} onClick={() => onAdd({
           title, content,
           id: 0
         })}>Save</button>
