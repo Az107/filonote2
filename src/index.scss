@@ -300,7 +300,6 @@ textarea {
         height: 20%;
       }
 
-
     }
 
     &-selected::backdrop {
@@ -335,10 +334,10 @@ textarea {
     resize: none;
 
   .title {
+      padding: 10px 5px 10px 5px;
       font-size: 200%;
       background-color: $primary-color;
       color: white;
-      padding: 5px;
       border: none;
       margin-top: none;
       margin-bottom: 5%;
